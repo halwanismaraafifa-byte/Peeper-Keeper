@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PeeperKeeper – Stay awake. Stay on the road.</title>
+<meta name="description" content="PeeperKeeper is a wearable anti-microsleep clip for drivers. On-device AI, audible alarm, no face images stored.">
+<meta property="og:title" content="PeeperKeeper – Stay awake. Stay on the road.">
+<meta property="og:description" content="Wearable anti-microsleep clip for drivers. Eyes on the road!">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M2 15 15 5l13 10-13 10z' fill='%230B7D52'/%3E%3Ccircle cx='15' cy='15' r='5' fill='%230B4A8B'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#EEF4F1;--card:#fff;--ink:#0A2540;--mut:#4A6072;--navy:#0B4A8B;--link:#0B4A8B;--green:#0B7D52;--gt:#0B7D52;--mint:#3DDC97;--line:#D8E5DF;--sky1:#BFE3F5;--sky2:#E3F4EC;--tint:#E4EEF9;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A141C;--card:#12222D;--ink:#E8F1F5;--mut:#9FB3C0;--navy:#0F3B6E;--link:#7DB7F0;--gt:#4ADE9F;--line:#22384A;--sky1:#17476B;--sky2:#143B33;--tint:#17304A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A141C;--card:#12222D;--ink:#E8F1F5;--mut:#9FB3C0;--navy:#0F3B6E;--link:#7DB7F0;--gt:#4ADE9F;--line:#22384A;--sky1:#17476B;--sky2:#143B33;--tint:#17304A;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:14px 16px 40px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;color:var(--link);text-decoration:none}
+.logo b{color:var(--gt)}
+.cart{position:relative;background:none;border:0;color:var(--link);padding:6px;cursor:pointer}
+.badge{position:absolute;top:-2px;right:-4px;background:var(--green);color:#fff;border-radius:10px;font-size:11px;min-width:18px;height:18px;line-height:18px;text-align:center;font-weight:700}
+nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:none}
+nav a{flex:none;padding:9px 16px;border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--link);font-weight:700;font-size:14px;text-decoration:none}
+nav a[aria-current=page]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.hero{position:relative;border-radius:20px;padding:22px 18px 18px;background:linear-gradient(180deg,var(--sky1),var(--sky2));overflow:hidden;min-height:190px}
+.hero h1{margin:6px 0 14px;font-size:30px;line-height:1.1;max-width:75%}
+.hero small{font-weight:700;color:var(--link);font-size:13px}
+.hero .mascot{position:absolute;right:8px;bottom:6px;width:112px}
+.tag{position:absolute;top:10px;right:10px;background:var(--card);border:2px solid var(--navy);color:var(--link);font-weight:700;font-size:12px;padding:4px 10px;border-radius:14px}
+.btn{display:inline-block;border:2px solid var(--green);background:var(--green);color:#fff;padding:11px 20px;border-radius:26px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;font-family:inherit}
+.btn.o{background:transparent;border-color:var(--navy);color:var(--link)}
+.btn.w{display:block;width:100%;text-align:center}
+.btn.m{background:var(--mint);border-color:var(--mint);color:#0A2540}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-top:12px}
+.card h2{margin:0 0 6px;font-size:18px;color:var(--link)}
+.card p{margin:0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.grid .card{margin:0;padding:12px}.grid b{display:block;font-size:14px;line-height:1.25;margin:6px 0 2px}.grid span{font-size:12px;color:var(--mut)}
+.ic{width:24px;height:24px;stroke:var(--gt);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.steps{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:10px}
+.steps li{display:flex;gap:12px;align-items:flex-start}
+.steps i{flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-weight:700;display:grid;place-items:center;font-size:14px}
+.row{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 8px}
+.row h2{margin:0;font-size:19px}.row a{color:var(--link);font-weight:700;font-size:14px;text-decoration:none}
+.news{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:16px;padding:10px;margin-top:10px;text-decoration:none;color:var(--ink)}
+.thumb{flex:none;width:72px;height:72px;border-radius:14px}
+.t1{background:linear-gradient(135deg,#0B7D52,#3DDC97)}.t2{background:linear-gradient(135deg,#0B4A8B,#3E86D6)}.t3{background:linear-gradient(135deg,#0B5A80,#0B7D52)}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px;background:var(--sky2);color:var(--gt)}
+.chip.s{background:var(--tint);color:var(--link)}
+.news b{display:block;line-height:1.25;margin:3px 0}.meta{font-size:13px;color:var(--mut)}
+.cta{background:var(--navy);color:#fff;border-radius:16px;padding:16px;margin-top:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta b{display:block;font-size:17px}.cta span{font-size:14px;opacity:.9}
+.cta.f input{flex:1;min-width:140px;border:0;border-radius:24px;padding:12px 16px;font:inherit;background:#fff;color:#0A2540}
+h1.pg{font-size:26px;margin:4px 0 12px}
+.banner{border-radius:16px;background:linear-gradient(180deg,var(--sky1),var(--sky2));padding:16px;display:flex;justify-content:space-between;align-items:flex-end;min-height:88px}
+.banner h1{margin:0;font-size:22px}.banner p{margin:2px 0 0;color:var(--mut);font-size:14px}.banner svg{width:76px;flex:none}
+.pic{border-radius:16px;background:linear-gradient(180deg,#8CCBF0,#CDEFE0 70%,#6FD49B 70%);height:170px;display:grid;place-items:center}.pic svg{width:130px}
+.price{color:var(--gt);font-weight:800;font-size:20px;text-align:right;line-height:1.1}.price small{display:block;font-weight:400;color:var(--mut);font-size:13px}
+.tog{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.tog button{padding:12px;border-radius:24px;border:2px solid var(--line);background:var(--card);color:var(--link);font:700 14px inherit;font-family:inherit;cursor:pointer}
+.tog button[aria-pressed=true]{border-color:var(--navy);background:var(--tint)}
+.qty{display:flex;justify-content:space-between;align-items:center;font-weight:700}.qty div{display:flex;align-items:center;gap:6px}
+.qty button{width:40px;height:40px;border:0;background:none;color:var(--link);font-size:24px;cursor:pointer}
+.spec div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}.spec div:last-child{border:0}
+.q{background:var(--card);border-radius:14px;margin-top:10px;border:2px solid transparent}
+.q button{width:100%;text-align:left;background:none;border:0;padding:14px 16px;font:700 15px inherit;font-family:inherit;color:var(--ink);display:flex;justify-content:space-between;gap:10px;cursor:pointer}
+.q p{margin:0;padding:0 16px 14px;color:var(--mut);font-size:15px}.q.open{border-color:var(--green)}
+label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}
+input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;background:var(--card);color:var(--ink)}
+textarea{min-height:100px}
+.dir{background:var(--navy);color:#fff;border-radius:16px;padding:16px;margin-top:16px;font-size:14px}.dir b{font-size:16px;display:block;margin-bottom:6px}
+.ok{color:var(--gt);font-weight:700;margin-top:10px}
+.art p{margin:0 0 12px;color:var(--ink)}.back{display:inline-block;margin:4px 0 10px;color:var(--link);font-weight:700;text-decoration:none}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:28px}
+:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C9BEA"/><stop offset="1" stop-color="#1B5FBF"/></linearGradient>
+<symbol id="pk" viewBox="0 0 120 120"><ellipse cx="60" cy="110" rx="30" ry="5" fill="#0A2540" opacity=".15"/><ellipse cx="22" cy="68" rx="8" ry="14" fill="#3E86D6"/><ellipse cx="98" cy="68" rx="8" ry="14" fill="#3E86D6"/><ellipse cx="60" cy="68" rx="40" ry="38" fill="url(#bg)"/><ellipse cx="48" cy="104" rx="10" ry="5" fill="#0B7D52"/><ellipse cx="72" cy="104" rx="10" ry="5" fill="#0B7D52"/><rect x="42" y="22" width="36" height="16" rx="8" fill="#16A870"/><path d="M60 22v-8q4-4 8-2" stroke="#0B7D52" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="60" cy="62" r="21" fill="#fff"/><circle cx="60" cy="62" r="12" fill="#16A870"/><circle cx="60" cy="62" r="6.5" fill="#0A2540"/><circle cx="56" cy="58" r="2.6" fill="#fff"/><circle cx="34" cy="78" r="5" fill="#F29BB5" opacity=".8"/><circle cx="86" cy="78" r="5" fill="#F29BB5" opacity=".8"/><path d="M52 86q8 6 16 0" stroke="#0A2540" stroke-width="2.5" fill="none" stroke-linecap="round"/></symbol>
+</defs></svg>
+<div class="wrap">
+<header>
+<a class="logo" href="#product"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15 15 5l13 10-13 10z" style="color:var(--gt)" stroke="var(--gt)"/><circle cx="15" cy="15" r="4" fill="var(--link)" stroke="none"/></svg><span>Peeper<b>Keeper</b></span></a>
+<button class="cart" id="cartBtn" aria-label="Cart"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/></svg><span class="badge" id="badge" hidden>0</span></button>
+</header>
+<nav id="nav"><a href="#product">Product</a><a href="#buy">Buy</a><a href="#news">News</a><a href="#qa">Q&amp;A</a><a href="#contact">Contact</a></nav>
+
+<main>
+<section id="product">
+<div class="hero"><span class="tag">Eyes on the road!</span><small>Wearable anti-microsleep clip</small><h1>Stay awake.<br>Stay on the road.</h1><a class="btn" href="#buy">Buy now</a> <a class="btn o" href="#how">How it works</a><svg class="mascot"><use href="#pk"/></svg></div>
+<div class="card"><h2>About the PeeperKeeper Clip</h2><p>A wearable clip that helps drivers stay awake. Its AI runs on the device and analyzes in real time, so the clip sounds an alarm at the first sign of microsleep, without any face images being stored.</p></div>
+<div class="grid">
+<div class="card"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/></svg><b>Audible alarm</b><span>Sounds at the first sign</span></div>
+<div class="card"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><rect x="10" y="10" width="4" height="4"/></svg><b>AI on the device</b><span>Analysis stays local</span></div>
+<div class="card"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m5 19 14-14"/></svg><b>No faces stored</b><span>Privacy by design</span></div>
+</div>
+<div class="card" id="how"><h2>How it works</h2>
+<ol class="steps">
+<li><i>1</i><p><b>Clip it on.</b> Attach the clip to the driver’s collar. It watches for early signs of microsleep.</p></li>
+<li><i>2</i><p><b>Camera double-checks.</b> When the clip senses a possible microsleep, the camera wakes up so the AI can confirm whether it’s real.</p></li>
+<li><i>3</i><p><b>Alarm, then forget.</b> The clip sounds an alarm right away. Analysis happens live on the device and no face images are saved.</p></li>
+</ol></div>
+<div class="row"><h2>Latest news</h2><a href="#news">See all</a></div>
+<div id="homeNews"></div>
+<div class="cta"><div><b>Need a fleet quote?</b><span>Talk to our team</span></div><a class="btn m" href="#contact" data-fleet>Contact us</a></div>
+</section>
+
+<section id="buy" hidden>
+<div class="pic"><svg viewBox="0 0 120 120"><use href="#pk"/></svg></div>
+<div class="row" style="margin:14px 0 0"><div><h1 class="pg" style="margin:0;font-size:22px">PeeperKeeper Clip</h1><span class="meta">Wearable anti-microsleep clip for drivers</span></div><div class="price">[YOUR PRICE]<small>per unit</small></div></div>
+<div class="tog"><button aria-pressed="true">Single unit</button><button aria-pressed="false">Fleet pack</button></div>
+<div class="card qty" style="margin:0">Quantity<div><button id="minus" aria-label="Decrease">−</button><span id="qn">1</span><button id="plus" aria-label="Increase">+</button></div></div>
+<button class="btn w" id="add" style="margin-top:12px">Add to cart</button>
+<p class="ok" id="added" hidden></p>
+<a class="btn o w" href="#contact" data-fleet style="margin-top:10px">Request fleet quote</a>
+<div class="card spec"><h2 style="color:var(--ink)">Product information</h2><div><span>Battery life</span><span>[spec]</span></div><div><span>Weight</span><span>[spec]</span></div><div><span>Connectivity</span><span>[spec]</span></div><div><span>In the box</span><span>[items]</span></div></div>
+</section>
+
+<section id="news" hidden>
+<h1 class="pg">News</h1>
+<div id="newsList"></div>
+<form class="cta f" id="sub"><b style="width:100%;font-size:15px">Get news by email</b><input type="email" placeholder="you@company.com" aria-label="Email" required><button class="btn m">Subscribe</button></form>
+</section>
+
+<section id="article" hidden><a class="back" href="#news">← All news</a><div id="art"></div><div class="cta"><div><b>Want PeeperKeeper for your fleet?</b><span>Talk to our team</span></div><a class="btn m" href="#contact" data-fleet>Contact us</a></div></section>
+
+<section id="qa" hidden>
+<div class="banner"><div><h1>Questions and answers</h1><p>Peeper has your answers.</p></div><svg viewBox="0 0 120 120"><use href="#pk"/></svg></div>
+<input id="sq" type="search" placeholder="Search questions" aria-label="Search questions" style="margin-top:12px;border-radius:24px">
+<div id="faq"></div>
+<div class="cta"><div><b>Still have a question?</b><span>Ask our team</span></div><a class="btn m" href="#contact">Contact us</a></div>
+</section>
+
+<section id="contact" hidden>
+<div class="banner"><div><h1>Contact us</h1><p>Say hi to Peeper and the team.</p></div><svg viewBox="0 0 120 120"><use href="#pk"/></svg></div>
+<form id="cf">
+<label for="n">Your name</label><input id="n" required>
+<label for="c">Company</label><input id="c">
+<label for="e">Email</label><input id="e" type="email" required>
+<label for="t">Topic</label><select id="t"><option>Buying a fleet pack</option><option>Buying a single unit</option><option>Product question</option><option>Partnership</option><option>Other</option></select>
+<label for="m">Message</label><textarea id="m"></textarea>
+<button class="btn w" style="margin-top:14px">Send message</button>
+</form>
+<div class="dir"><b>Or reach us directly</b>Email: <a href="mailto:peeperkeeper@gmail.com" style="color:inherit">peeperkeeper@gmail.com</a><br>Phone: +62xxxxxxxx<br>Address: Indonesia</div>
+</section>
+</main>
+<footer>© PeeperKeeper · Eyes on the road.</footer>
+</div>
+<script>
+var EMAIL="peeperkeeper@gmail.com";
+var views=["product","buy","news","qa","contact"],$=function(i){return document.getElementById(i)};
+var NEWS=[
+{t:"How microsleep happens, and why drivers rarely notice it",g:"Safety",c:"t3",r:"2 min read",b:["A microsleep is a brief, involuntary lapse into sleep that can last from a fraction of a second to several seconds. The eyes may stay open, but the brain stops processing what is in front of the driver.","Drivers rarely notice because the lapse erases the awareness of itself. Afterwards it feels like a blink or a daydream. Long hours, night driving, monotonous roads and too little sleep all raise the risk.","Distance is what makes it dangerous. At 80 km/h a vehicle covers about 22 metres every second, so a four-second microsleep means roughly 90 metres driven blind. That is why a warning has to come at the first sign, not after the drift has begun."]},
+{t:"Why on-device AI keeps driver data private",g:"Technology",c:"t1",r:"2 min read",b:["Many driver-monitoring systems stream video to the cloud. PeeperKeeper takes a different route: the AI runs on the device itself, so the analysis happens right where the driver is.","Here is the flow. The clip on the collar senses the first signs of microsleep. Only then does the camera wake up, and the AI checks in real time whether the driver is really asleep. The footage is analyzed live and no face images are stored.","Keeping the work local also means faster alarms, since nothing waits on a network connection, and far less personal data for fleets to protect."]},
+{t:"How fleets can plan rest breaks around fatigue risk",g:"Safety",c:"t2",r:"2 min read",b:["Fatigue follows patterns, and good scheduling works with them. The hours after midnight and the early-afternoon dip are when drivers are most prone to drowsiness.","Practical steps: set a planned stop before continuous driving gets too long, avoid back-to-back night shifts, give drivers a safe place to rest, and make it normal to say “I’m tired” without penalty.","Technology works as a safety net, not a replacement for rest. If a PeeperKeeper clip detects a microsleep, its alarm gives the driver an immediate warning to take a break."]},
+{t:"Meet PeeperKeeper: why we built an anti-microsleep clip",g:"Company",c:"t3",r:"1 min read",b:["PeeperKeeper is an Indonesian startup building a wearable clip that helps drivers stay awake. The clip attaches to the collar and sounds an alarm when it detects a microsleep.","Our rule from day one: protect the driver without watching the driver. The camera only activates to confirm a microsleep, and no face images are stored.","We are now talking with fleets in logistics, mining and construction. If you run a fleet and want to learn more or request a quote, reach out through the Contact page."]}];
+NEWS.forEach(function(n){n.d="24 Nov 2026"});
+function chip(n){return '<span class="chip'+(n.g==="Safety"?" s":"")+'">'+n.g+'</span>'}
+function item(n,i){return '<a class="news" href="#news-'+(i+1)+'"><div class="thumb '+n.c+'"></div><div>'+chip(n)+'<b>'+n.t+'</b><span class="meta">'+n.d+' · '+n.r+'</span></div></a>'}
+$("homeNews").innerHTML=NEWS.slice(0,2).map(item).join("");
+var N0=NEWS[0];$("newsList").innerHTML='<a href="#news-1" style="display:block;text-decoration:none;color:var(--ink);border-radius:16px;overflow:hidden;background:var(--card)"><div class="pic" style="border-radius:0"><svg viewBox="0 0 120 120"><use href="#pk"/></svg></div><div style="padding:14px">'+chip(N0)+'<h2 style="margin:6px 0 2px;font-size:19px">'+N0.t+'</h2><span class="meta">'+N0.d+' · '+N0.r+'</span></div></a>'+NEWS.slice(1).map(function(n,i){return item(n,i+1)}).join("");
+function show(){var h=location.hash.slice(1);
+if(h.indexOf("news-")===0){var n=NEWS[parseInt(h.slice(5),10)-1];if(n){$("art").innerHTML=chip(n)+'<h1 class="pg" style="margin:8px 0 2px">'+n.t+'</h1><span class="meta">'+n.d+' · '+n.r+'</span><div class="card art">'+n.b.map(function(p){return "<p>"+p+"</p>"}).join("")+'</div>';h="article"}}
+if(h!=="how"&&h!=="article"&&views.indexOf(h)<0)h="product";
+var v=h==="how"?"product":h,nv=v==="article"?"news":v;
+views.concat(["article"]).forEach(function(x){$(x).hidden=x!==v});
+document.querySelectorAll("#nav a").forEach(function(a){a.getAttribute("href")==="#"+nv?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+if(h!=="how")window.scrollTo(0,0)}
+addEventListener("hashchange",show);show();
+var cart=0,qty=1;
+function setQ(n){qty=Math.max(1,n);$("qn").t
